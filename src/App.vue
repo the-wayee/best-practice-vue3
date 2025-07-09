@@ -1,11 +1,12 @@
 <script setup>
-import { ref } from 'vue';
 import Ref from './components/ref.vue';
+import Computed from './components/computed.vue';
 
 </script>
 
 <template>
-    <Ref></ref>
+    <!-- <Ref></ref> -->
+     <Computed></Computed>
 </template>
 
 <style scoped>
