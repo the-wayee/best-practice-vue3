@@ -1,12 +1,13 @@
 <script setup>
-import Ref from './components/ref.vue';
-import Computed from './components/computed.vue';
+import Ref from './components/ref-prac.vue';
+// import Computed from './components/computed-prac.vue';
+import watch from './components/watch-prac.vue';
 
 </script>
 
 <template>
     <!-- <Ref></ref> -->
-     <Computed></Computed>
+     <watch></watch>
 </template>
 
 <style scoped>
