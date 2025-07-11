@@ -1,4 +1,5 @@
 <script setup>
+import LifeCircle from './components/LifeCircle.vue';
 import Ref from './components/ref-prac.vue';
 // import Computed from './components/computed-prac.vue';
 import watch from './components/watch-prac.vue';
@@ -7,7 +8,7 @@ import watch from './components/watch-prac.vue';
 
 <template>
     <!-- <Ref></ref> -->
-     <watch></watch>
+     <LifeCircle></LifeCircle>
 </template>
 
 <style scoped>
