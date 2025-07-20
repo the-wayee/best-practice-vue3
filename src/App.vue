@@ -1,60 +1,50 @@
+<template>
+  <div style="display: flex">
+    <div :class="[active == index ? 'active' : '']" @click="siwtchCom(item, index)" class="tab" v-for="(item, index) in data">
+      <div>{{ item.name }}</div>
+    </div>
+  </div>
+  <component :is="comId"></component>
+</template>
+
 <script setup>
-import { reactive } from "vue";
-import TreeVue from "./components/Tree.vue";
-const Tree = {
-  name: "",
-  check: false,
-  children: [],
-};
+import { reactive, readonly, ref } from "vue";
+import A from "./components/A.vue";
+import B from "./components/B.vue";
+import C from "./components/C.vue";
+
+const comId = ref(A);
+const active = ref(0)
+
+const siwtchCom = (item, index) => {
+    comId.value = item.com
+    active.value = index
+}
 
 const data = reactive([
   {
-    name: "1",
-    check: true,
-    children: [
-      {
-        name: "1-1",
-        check: false,
-        children: [],
-      },
-    ],
+    name: "A组件",
+    com: A,
   },
   {
-    name: "2",
-    check: false,
-    children: [],
+    name: "B组件",
+    com: B,
   },
   {
-    name: "3",
-    check: false,
-    children: [
-      {
-        name: "3-1",
-        check: false,
-        children: [
-          {
-            name: "3-1-1",
-            check: false,
-            children: [],
-          },
-                    {
-            name: "3-1-2",
-            check: true,
-            children: [],
-          },
-        ],
-      },
-    ],
+    name: "C组件",
+    com: C,
   },
 ]);
 </script>
 
-<template>
-  <!-- 全局组件 -->
-  <!-- <Card></Card> -->
-
-  <!-- 递归组件 -->
-  <TreeVue :data="data"></TreeVue>
-</template>
-
-<style lang="scss"></style>
+<style lang="less" scoped>
+.tab {
+  border: 1px solid #ccc;
+  margin: 5px;
+  padding: 5px;
+}
+.active {
+    background: skyblue;
+    cursor: pointer;
+}
+</style>
