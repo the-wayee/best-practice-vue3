@@ -8,12 +8,12 @@
 </template>
 
 <script setup>
-import { reactive, readonly, ref } from "vue";
+import { reactive, readonly, ref, shallowRef, markRaw } from "vue";
 import A from "./components/A.vue";
 import B from "./components/B.vue";
 import C from "./components/C.vue";
 
-const comId = ref(A);
+const comId = shallowRef(A);
 const active = ref(0)
 
 const siwtchCom = (item, index) => {
@@ -24,15 +24,15 @@ const siwtchCom = (item, index) => {
 const data = reactive([
   {
     name: "A组件",
-    com: A,
+    com: markRaw(A),
   },
   {
     name: "B组件",
-    com: B,
+    com: markRaw(B),
   },
   {
     name: "C组件",
-    com: C,
+    com: markRaw(C),
   },
 ]);
 </script>
