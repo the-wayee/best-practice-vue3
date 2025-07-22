@@ -1,50 +1,17 @@
 <template>
-  <div style="display: flex">
-    <div :class="[active == index ? 'active' : '']" @click="siwtchCom(item, index)" class="tab" v-for="(item, index) in data">
-      <div>{{ item.name }}</div>
-    </div>
+  <div>
+    <Dialog>
+      <template #header> 我被插入上面了 </template>
+      <template #default="{data}"> 
+        {{ data.name }} - {{ data.age }}
+       </template>
+      <template v-slot:footer> 我被插入下面了 </template>
+    </Dialog>
   </div>
-  <component :is="comId"></component>
 </template>
 
 <script setup>
-import { reactive, readonly, ref, shallowRef, markRaw } from "vue";
-import A from "./components/A.vue";
-import B from "./components/B.vue";
-import C from "./components/C.vue";
-
-const comId = shallowRef(A);
-const active = ref(0)
-
-const siwtchCom = (item, index) => {
-    comId.value = item.com
-    active.value = index
-}
-
-const data = reactive([
-  {
-    name: "A组件",
-    com: markRaw(A),
-  },
-  {
-    name: "B组件",
-    com: markRaw(B),
-  },
-  {
-    name: "C组件",
-    com: markRaw(C),
-  },
-]);
+import Dialog from "./components/Dialog.vue";
 </script>
 
-<style lang="less" scoped>
-.tab {
-  border: 1px solid #ccc;
-  margin: 5px;
-  padding: 5px;
-}
-.active {
-    background: skyblue;
-    cursor: pointer;
-}
-</style>
+<style lang="scss" scoped></style>
