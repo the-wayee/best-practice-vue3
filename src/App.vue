@@ -13,9 +13,7 @@
 <script setup>
 import Skeleton from "./components/skeleton.vue";
 import { defineAsyncComponent } from "vue";
-const SyncVue = defineAsyncComponent(() => {
-  import("@/components/sync.vue");
-});
+const SyncVue = defineAsyncComponent(() => import("@/components/sync.vue"));
 </script>
 
 <style lang="scss" scoped></style>
